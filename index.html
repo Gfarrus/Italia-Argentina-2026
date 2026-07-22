@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AdSmart Media · Propuesta Argentina-Italia 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0A1628;
+    --azure: #4A9EE8;
+    --orange: #F97316;
+    --white: #ffffff;
+    --gray-bg: #F5F6F8;
+    --gray-text: #6B7280;
+    --gray-light: #E5E7EB;
+    --body-text: #1F2937;
+  }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: #fff;
+    color: var(--body-text);
+    font-size: 14px;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 48px 56px;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 2rem;
+    padding-bottom: 1.5rem;
+    border-top: 3px solid var(--navy);
+    border-bottom: 3px solid var(--navy);
+    padding-top: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .header-kicker {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--azure);
+    margin-bottom: 6px;
+  }
+  .header-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 42px;
+    line-height: 0.95;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+  }
+  .header-title span { color: var(--azure); }
+  .header-meta {
+    text-align: right;
+    font-size: 12px;
+    color: var(--gray-text);
+    line-height: 1.8;
+  }
+  .header-meta .brand {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--orange);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .header-meta .confidential {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--orange);
+    border: 1px solid var(--orange);
+    padding: 2px 8px;
+    border-radius: 3px;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    margin-bottom: 3rem;
+  }
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--azure);
+    border-bottom: 1px solid var(--azure);
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+  }
+  .accent-rule {
+    height: 2px;
+    border: none;
+    background: linear-gradient(90deg, var(--orange) 0%, var(--azure) 45%, transparent 100%);
+    margin-bottom: 1.2rem;
+  }
+  .body-text {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--body-text);
+  }
+  .body-text strong { font-weight: 600; color: var(--navy); }
+
+  /* ── MÓDULOS ── */
+  .modules-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .module-card {
+    background: var(--gray-bg);
+    border: 1px solid var(--gray-light);
+    border-radius: 10px;
+    padding: 1.3rem;
+    border-top: 3px solid var(--navy);
+  }
+  .module-card.accent { border-top-color: var(--azure); }
+  .module-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+  .module-icon {
+    width: 38px;
+    height: 38px;
+    background: var(--navy);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .module-icon svg { width: 20px; height: 20px; fill: none; stroke: var(--azure); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .module-card.accent .module-icon { background: var(--azure); }
+  .module-card.accent .module-icon svg { stroke: #fff; }
+  .module-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: var(--navy);
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+  }
+  .module-list {
+    list-style: none;
+    font-size: 13px;
+    color: var(--gray-text);
+    line-height: 1.5;
+  }
+  .module-list li {
+    padding: 4px 0 4px 14px;
+    position: relative;
+    border-bottom: 1px solid var(--gray-light);
+  }
+  .module-list li:last-child { border-bottom: none; }
+  .module-list li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.3;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--gray-light);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .tl-phase {
+    padding: 1.1rem 1rem;
+    border-right: 1px solid var(--gray-light);
+  }
+  .tl-phase:last-child { border-right: none; }
+  .tl-phase.highlight { background: var(--navy); }
+  .tl-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--gray-light);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .tl-phase.highlight .tl-num { color: var(--azure); }
+  .tl-date {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 5px;
+  }
+  .tl-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 5px;
+    line-height: 1.3;
+  }
+  .tl-phase.highlight .tl-name { color: #fff; }
+  .tl-desc {
+    font-size: 11px;
+    color: var(--gray-text);
+    line-height: 1.5;
+  }
+  .tl-phase.highlight .tl-desc { color: var(--azure); }
+
+  /* ── KPIs ── */
+  .kpis-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .kpi-card {
+    background: var(--gray-bg);
+    border: 1px solid var(--gray-light);
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+  }
+  .kpi-value {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    font-size: 34px;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 3px;
+  }
+  .kpi-value sup {
+    font-size: 18px;
+    color: var(--orange);
+    vertical-align: super;
+  }
+  .kpi-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--gray-text);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+  .kpi-desc {
+    font-size: 11px;
+    color: #9CA3AF;
+    line-height: 1.4;
+  }
+
+  /* ── PRICING ── */
+  .pricing-block {
+    background: var(--navy);
+    border-radius: 12px;
+    padding: 1.6rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+  }
+  .price-col {
+    padding: 0 1.4rem;
+    border-right: 1px solid rgba(74,158,232,0.2);
+  }
+  .price-col:first-child { padding-left: 0; }
+  .price-col:last-child { border-right: none; padding-right: 0; }
+  .price-kicker {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--azure);
+    margin-bottom: 8px;
+  }
+  .price-item {
+    font-size: 12px;
+    color: rgba(255,255,255,0.65);
+    padding: 4px 0 4px 13px;
+    position: relative;
+    line-height: 1.5;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .price-item:last-child { border-bottom: none; }
+  .price-item::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 1.3;
+  }
+  .price-pending {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .price-tag {
+    display: inline-block;
+    background: var(--orange);
+    color: #fff;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    width: fit-content;
+  }
+  .price-main {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  .price-note {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.6;
+  }
+  .price-note em {
+    color: var(--azure);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  /* ── WHY ── */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .why-item {
+    padding: 1rem;
+    border-left: 3px solid var(--azure);
+    background: var(--gray-bg);
+    border-radius: 0 8px 8px 0;
+  }
+  .why-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 5px;
+  }
+  .why-body {
+    font-size: 12px;
+    color: var(--gray-text);
+    line-height: 1.55;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 3px solid var(--navy);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 2rem;
+  }
+  .footer-tagline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .footer-tagline span { color: var(--azure); }
+  .footer-sub {
+    font-size: 12px;
+    color: var(--gray-text);
+    margin-top: 4px;
+  }
+  .footer-contact {
+    text-align: right;
+    font-size: 12px;
+    color: var(--gray-text);
+    line-height: 1.8;
+  }
+  .footer-contact strong {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .footer-contact .email { color: var(--azure); font-weight: 500; }
+
+  /* ── PRINT ── */
+  @media print {
+    body { font-size: 12px; }
+    .page { padding: 32px 40px; }
+    .header-title { font-size: 34px; }
+    .section { margin-bottom: 2rem; }
+    .pricing-block { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .tl-phase.highlight { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div>
+      <div class="header-kicker">Propuesta MarTech · Julio 2026</div>
+      <div class="header-title">Ecosistema Digital<br><span>Argentina-Italia</span> 2026</div>
+    </div>
+    <div class="header-meta">
+      <span class="brand">AdSmart Media</span>
+      Agencia ICE · Embajada de Italia<br>
+      Confindustria · UIA<br>
+      <span class="confidential">Confidencial</span>
+    </div>
+  </header>
+
+  <!-- 01 EXECUTIVE SUMMARY -->
+  <section class="section">
+    <div class="section-label">01 · Resumen Ejecutivo</div>
+    <div class="section-title">El momento bilateral más relevante en décadas</div>
+    <hr class="accent-rule">
+    <p class="body-text">
+      La entrada en vigor provisoria del <strong>Acuerdo de Libre Comercio UE-Mercosur</strong> convierte a Argentina-Italia 2026 en el evento B2B institucional de mayor impacto del año. Las Rondas del 7 de septiembre y los Paneles del 8 concentrarán tomadores de decisión de los sectores Alimenticio, Energía, Ingeniería, Digital y Farmacéutico — una audiencia de alto valor que exige infraestructura MarTech a la altura.
+      <br><br>
+      <strong>AdSmart Media</strong> lidera la estrategia y arquitectura del ecosistema digital del evento: definición de flujos, diseño de experiencia de registro, automatización de comunicaciones y métricas de conversión — garantizando <strong>trazabilidad total y máxima tasa de asistencia efectiva</strong> desde el primer clic hasta el asiento en el Palacio Libertad.
+    </p>
+  </section>
+
+  <!-- 02 ALCANCE TÉCNICO -->
+  <section class="section">
+    <div class="section-label">02 · Alcance Técnico</div>
+    <div class="section-title">Dos módulos. Una arquitectura integrada.</div>
+    <hr class="accent-rule">
+    <div class="modules-grid">
+      <div class="module-card">
+        <div class="module-header">
+          <div class="module-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          </div>
+          <div class="module-title">Módulo 1<br>Landing Page & CRM</div>
+        </div>
+        <ul class="module-list">
+          <li>Landing de alta conversión con UX corporativo B2B, segmentada por sector y modalidad (Rondas / Paneles / ambos)</li>
+          <li>Formulario de registro con integración al CRM del cliente</li>
+          <li>Tracking avanzado: UTM, atribución multicanal, métricas de formulario</li>
+          <li>Dashboard en tiempo real: registros totales, por sector, conversión por fuente</li>
+          <li>Exportación segmentada para curación de agendas de rondas</li>
+        </ul>
+      </div>
+      <div class="module-card accent">
+        <div class="module-header">
+          <div class="module-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="module-title">Módulo 2<br>Email Automation & Recovery</div>
+        </div>
+        <ul class="module-list">
+          <li>Envío masivo a base de contactos B2B provista por los organizadores</li>
+          <li>Flujos automatizados segmentados por sector y modalidad de participación</li>
+          <li>Confirmación inmediata + kit digital del asistente (agenda, venue, acceso)</li>
+          <li>Recordatorios estratégicos: T-14, T-7, T-2 y día del evento</li>
+          <li>Recovery loop de registros incompletos: 3 touchpoints automáticos</li>
+          <li>Panel de métricas: deliverability, open rate, click rate, RSVP real</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 TIMELINE -->
+  <section class="section">
+    <div class="section-label">03 · Metodología y Timeline</div>
+    <div class="section-title">Cuatro fases. Cero margen de error.</div>
+    <hr class="accent-rule">
+    <div class="timeline">
+      <div class="tl-phase">
+        <div class="tl-num">I</div>
+        <div class="tl-date">22–31 Jul</div>
+        <div class="tl-name">Setup & Arquitectura</div>
+        <div class="tl-desc">Brief, definición de flujos, wireframes LP, segmentos de email y estructura CRM</div>
+      </div>
+      <div class="tl-phase highlight">
+        <div class="tl-num">II</div>
+        <div class="tl-date">1–10 Ago</div>
+        <div class="tl-name">Build & QA</div>
+        <div class="tl-desc">Desarrollo landing, automatizaciones, integración CRM, tracking y UAT con organizadores</div>
+      </div>
+      <div class="tl-phase">
+        <div class="tl-num">III</div>
+        <div class="tl-date">11–31 Ago</div>
+        <div class="tl-name">Go Live & Captación</div>
+        <div class="tl-desc">Apertura de registros, flujos activos, monitoreo diario y recovery loops en tiempo real</div>
+      </div>
+      <div class="tl-phase">
+        <div class="tl-num">IV</div>
+        <div class="tl-date">1–8 Sep</div>
+        <div class="tl-name">Nurturing & Evento</div>
+        <div class="tl-desc">Recordatorios finales, soporte día del evento y reporte ejecutivo de asistencia</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 KPIs -->
+  <section class="section">
+    <div class="section-label">04 · Indicadores Clave de Éxito</div>
+    <div class="section-title">Resultados medibles, no promesas.</div>
+    <hr class="accent-rule">
+    <div class="kpis-grid">
+      <div class="kpi-card">
+        <div class="kpi-value">+85<sup>%</sup></div>
+        <div class="kpi-label">Registro completado</div>
+        <div class="kpi-desc">UX optimizado + recovery loop activo sobre base target</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">+40<sup>%</sup></div>
+        <div class="kpi-label">Recuperación incompletos</div>
+        <div class="kpi-desc">Prospectos parciales reactivados vía 3 touchpoints automáticos</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">+90<sup>%</sup></div>
+        <div class="kpi-label">Asistencia efectiva</div>
+        <div class="kpi-desc">vs. benchmark de 60–70% sin nurturing activo</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">100<sup>%</sup></div>
+        <div class="kpi-label">Trazabilidad</div>
+        <div class="kpi-desc">Atribución completa por fuente, sector y etapa del funnel</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">&lt;24<sup>h</sup></div>
+        <div class="kpi-label">Confirmación</div>
+        <div class="kpi-desc">Desde registro hasta recepción de confirmación personalizada</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-value">360<sup>°</sup></div>
+        <div class="kpi-label">Dashboard en vivo</div>
+        <div class="kpi-desc">Visibilidad para ICE, Embajada, Confindustria y UIA</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 INVERSIÓN -->
+  <section class="section">
+    <div class="section-label">05 · Inversión</div>
+    <div class="section-title">Precio fijo. Alcance cerrado. Sin sorpresas.</div>
+    <hr class="accent-rule">
+    <div class="pricing-block">
+      <div class="price-col">
+        <div class="price-kicker">Módulo 1 incluye</div>
+        <div class="price-item">Landing page alta conversión</div>
+        <div class="price-item">Integración CRM del cliente</div>
+        <div class="price-item">Tracking + dashboard tiempo real</div>
+        <div class="price-item">Exportación segmentada de registros</div>
+        <div class="price-item">Hosting hasta el 8 de septiembre</div>
+      </div>
+      <div class="price-col">
+        <div class="price-kicker">Módulo 2 incluye</div>
+        <div class="price-item">Envío masivo a base del cliente</div>
+        <div class="price-item">5 flujos automatizados segmentados</div>
+        <div class="price-item">Secuencia de recordatorios (4 envíos)</div>
+        <div class="price-item">Recovery loop 3 touchpoints</div>
+        <div class="price-item">Panel métricas + reporte post-evento</div>
+      </div>
+      <div class="price-col price-pending">
+        <div class="price-tag">En relevamiento técnico</div>
+        <div class="price-main">Inversión total a confirmar tras relevamiento de volumen y requerimientos técnicos</div>
+        <div class="price-note">
+          Estructura de pago: <em>50% inicio · 50% go live</em><br>
+          Precio fijo · llave en mano · sin variables por volumen<br>
+          Propuesta definitiva en 48 hs hábiles
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 POR QUÉ ADSMART -->
+  <section class="section">
+    <div class="section-label">06 · Por qué AdSmart Media</div>
+    <div class="section-title">MarTech de precisión para audiencias B2B institucionales.</div>
+    <hr class="accent-rule">
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-title">Estrategia MarTech</div>
+        <div class="why-body">Lideramos la arquitectura completa: flujos, segmentación, diseño de experiencia y métricas — no ejecutamos tareas sueltas, entregamos un ecosistema.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-title">Arquitectura de datos</div>
+        <div class="why-body">+10 años diseñando ecosistemas de captación para audiencias corporativas en banca, automotriz, O&G y tecnología en Argentina y LATAM.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-title">Visibilidad multi-org</div>
+        <div class="why-body">Dashboard con roles diferenciados para los cuatro organizadores: ICE, Embajada, Confindustria y UIA acceden a métricas en tiempo real.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-title">Delivery acelerado</div>
+        <div class="why-body">Go live en 3 semanas con metodología de hitos semanales y UAT continuo validado con los organizadores.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-title">Precio fijo</div>
+        <div class="why-body">Alcance cerrado, una sola inversión, cero sorpresas presupuestarias. Confirmamos número definitivo en 48 hs hábiles tras el relevamiento.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-title">Socio estratégico</div>
+        <div class="why-body">No somos un proveedor de formularios. Somos el aliado MarTech que convierte cada registro en un asistente calificado, perfilado y comprometido.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <div class="footer-tagline">Machine Delivered <span>Results.</span></div>
+      <div class="footer-sub">AdSmart Media · Buenos Aires · Julio 2026</div>
+    </div>
+    <div class="footer-contact">
+      <strong>Gonzalo Farrus</strong>
+      Founder & CEO · AdSmart Media<br>
+      <span class="email">hola@adsmartmedia.com</span>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
