@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Argentina-Italia 2026 · Paneles Sectoriales y Rondas de Negocios</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green: #006341;
+  --red: #CE2B37;
+  --gold: #B8860B;
+  --white: #ffffff;
+  --cream: #FAFAFA;
+  --dark: #111111;
+  --mid: #444444;
+  --light: #F4F4F4;
+  --border: #E0E0E0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--white);
+  color: var(--dark);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── HERO: fondo blanco con tricolor Italia ── */
+.hero {
+  min-height: 100vh;
+  background: #fff;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Tres franjas verticales sutiles de la bandera italiana */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 99, 65, 0.07) 0%,
+    rgba(0, 99, 65, 0.07) 33.33%,
+    rgba(255,255,255,0) 33.33%,
+    rgba(255,255,255,0) 66.66%,
+    rgba(206, 43, 55, 0.07) 66.66%,
+    rgba(206, 43, 55, 0.07) 100%
+  );
+  pointer-events: none;
+}
+
+/* Línea decorativa tricolor arriba */
+.tricolor-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 5px;
+  width: 100%;
+}
+.tricolor-bar .t-g { background: var(--green); }
+.tricolor-bar .t-w { background: #fff; border-top: 1px solid #e0e0e0; }
+.tricolor-bar .t-r { background: var(--red); }
+
+.hero-nav {
+  position: relative;
+  z-index: 10;
+  padding: 1.8rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+}
+
+.nav-logos {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.nav-logo-pill {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mid);
+  border: 1px solid var(--border);
+  padding: 5px 12px;
+  border-radius: 20px;
+  background: #fff;
+}
+
+.nav-logo-pill.main {
+  color: var(--dark);
+  border-color: var(--dark);
+  font-weight: 700;
+}
+
+.nav-date {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--green);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid var(--green);
+  padding: 5px 14px;
+  border-radius: 20px;
+}
+
+.hero-body {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem 4rem;
+  max-width: 860px;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 2rem;
+}
+
+/* Bandera italiana inline real */
+.flag-icon {
+  display: flex;
+  border-radius: 3px;
+  overflow: hidden;
+  width: 32px;
+  height: 22px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+  flex-shrink: 0;
+}
+.flag-icon span { flex: 1; display: block; }
+.flag-icon .fi-g { background: var(--green); }
+.flag-icon .fi-w { background: #fff; }
+.flag-icon .fi-r { background: var(--red); }
+
+.eyebrow-text {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: clamp(52px, 7vw, 90px);
+  line-height: 0.9;
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+}
+
+.hero-title .country-it { color: var(--green); }
+.hero-title .year {
+  color: var(--red);
+  font-style: italic;
+}
+
+.hero-subtitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--mid);
+  margin-bottom: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  margin-top: 1rem;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 0;
+  margin-bottom: 3rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  width: fit-content;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 1rem 1.5rem;
+  border-right: 1px solid var(--border);
+}
+
+.meta-item:last-child { border-right: none; }
+
+.meta-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #999;
+}
+
+.meta-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+/* Botón CTA verde Italia */
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--green);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 16px 32px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  width: fit-content;
+  box-shadow: 0 4px 16px rgba(0,99,65,0.2);
+}
+
+.hero-cta:hover {
+  background: #004d30;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,99,65,0.3);
+}
+
+.hero-deadline {
+  margin-top: 1.2rem;
+  font-size: 12px;
+  color: #999;
+}
+
+.hero-deadline strong { color: var(--red); font-weight: 700; }
+
+.hero-footer-nav {
+  position: relative;
+  z-index: 10;
+  padding: 1.2rem 4rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.scroll-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes blink { 0%,100%{opacity:0.3;} 50%{opacity:1;} }
+
+.scroll-text {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #aaa;
+}
+
+/* ── BANNER ACUERDO ── */
+.acuerdo-banner {
+  background: linear-gradient(135deg, var(--green) 0%, #004d30 100%);
+  padding: 1.3rem 4rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.acuerdo-icon {
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.acuerdo-text { font-size: 13px; color: rgba(255,255,255,0.9); line-height: 1.5; }
+.acuerdo-text strong { color: #fff; font-weight: 700; }
+
+/* ── SECTIONS ── */
+.section { padding: 6rem 4rem; }
+
+.section-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 3px;
+  background: var(--green);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1.1;
+  color: var(--dark);
+  margin-bottom: 1.5rem;
+}
+
+/* ── SOBRE EL EVENTO ── */
+.about-section {
+  background: var(--white);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+  border-bottom: 1px solid var(--border);
+}
+
+.about-body { font-size: 15px; line-height: 1.9; color: var(--mid); }
+.about-body p + p { margin-top: 1rem; }
+
+.cronograma {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.cron-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dark);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cron-title::before {
+  content: '';
+  display: block;
+  width: 16px; height: 3px;
+  background: var(--red);
+  border-radius: 2px;
+}
+
+.cron-day {
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.cron-day:last-child { border-bottom: none; padding-bottom: 0; }
+
+.cron-day-num {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 900;
+  font-style: italic;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.cron-day:first-child .cron-day-num { background: var(--green); color: #fff; }
+.cron-day:last-child .cron-day-num { background: var(--red); color: #fff; }
+
+.cron-day-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #999;
+  margin-bottom: 3px;
+}
+
+.cron-day-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 5px;
+}
+
+.cron-day-detail { font-size: 13px; color: var(--mid); line-height: 1.7; }
+
+/* ── SECTORES ── */
+.sectores-section {
+  background: var(--dark);
+  padding: 6rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fondo tricolor sutil sobre oscuro */
+.sectores-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0,99,65,0.12) 0%,
+    rgba(0,99,65,0.12) 33.33%,
+    transparent 33.33%,
+    transparent 66.66%,
+    rgba(206,43,55,0.12) 66.66%,
+    rgba(206,43,55,0.12) 100%
+  );
+  pointer-events: none;
+}
+
+.sectores-section .section-label { color: rgba(255,255,255,0.5); position: relative; z-index: 1; }
+.sectores-section .section-label::before { background: rgba(255,255,255,0.3); }
+.sectores-section .section-title { color: #fff; position: relative; z-index: 1; }
+
+.sectores-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.sector-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.sector-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--green);
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+  transform-origin: left;
+}
+
+.sector-card:hover { background: rgba(255,255,255,0.09); transform: translateY(-3px); }
+.sector-card:hover::after { transform: scaleX(1); }
+
+/* Iconos SVG propios para cada sector */
+.sector-icon {
+  width: 48px; height: 48px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.sector-icon svg {
+  width: 26px; height: 26px;
+  fill: none;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sector-icon.alimenticio,
+.sector-icon.ingenieria,
+.sector-icon.energia,
+.sector-icon.digital,
+.sector-icon.farmaceutico { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); }
+
+.sector-icon svg { stroke: rgba(255,255,255,0.45); }
+
+.sector-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.4;
+}
+
+/* ── PASOS ── */
+.pasos-section {
+  background: var(--cream);
+  padding: 6rem 4rem;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.part-intro {
+  max-width: 580px;
+  font-size: 15px;
+  color: var(--mid);
+  line-height: 1.85;
+  margin-bottom: 3rem;
+}
+
+.part-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+
+.part-feature {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.part-feature:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+
+.part-feature::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+}
+
+.part-feature:nth-child(1)::before { background: var(--green); }
+.part-feature:nth-child(2)::before { background: #fff; border-bottom: 1px solid var(--border); }
+.part-feature:nth-child(3)::before { background: var(--red); }
+
+.part-feature-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.part-feature:nth-child(1) .part-feature-icon { background: rgba(0,99,65,0.1); }
+.part-feature:nth-child(2) .part-feature-icon { background: rgba(0,0,0,0.06); }
+.part-feature:nth-child(3) .part-feature-icon { background: rgba(206,43,55,0.1); }
+
+.part-feature-icon svg {
+  width: 22px; height: 22px;
+  fill: none; stroke-width: 1.8;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+
+.part-feature:nth-child(1) .part-feature-icon svg { stroke: var(--green); }
+.part-feature:nth-child(2) .part-feature-icon svg { stroke: var(--mid); }
+.part-feature:nth-child(3) .part-feature-icon svg { stroke: var(--red); }
+
+.part-feature-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  font-weight: 900;
+  font-style: italic;
+  color: var(--border);
+  line-height: 1;
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
+}
+
+.part-feature-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--dark);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.part-feature-body { font-size: 13px; color: var(--mid); line-height: 1.65; }
+
+/* ── FORMULARIO EMBEBIDO ── */
+.form-section {
+  background: var(--white);
+  padding: 6rem 4rem;
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.form-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0,99,65,0.08);
+  border: 1px solid rgba(0,99,65,0.2);
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+.form-badge::before {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: blink 2s ease-in-out infinite;
+}
+
+.form-wrapper {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.06);
+}
+
+.form-wrapper iframe {
+  width: 100%;
+  height: 920px;
+  border: none;
+  display: block;
+}
+
+.form-deadline {
+  margin-top: 1.5rem;
+  font-size: 13px;
+  color: var(--mid);
+  text-align: center;
+  padding: 1rem;
+  background: var(--cream);
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.form-deadline strong { color: var(--red); font-weight: 700; }
+
+/* ── ORGANIZADORES ── */
+.orgs-section {
+  background: var(--dark);
+  padding: 2.5rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.orgs-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.orgs-list { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; justify-content: flex-end; }
+
+.org-pill {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+}
+
+.org-pill:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+
+/* ── FOOTER ── */
+.footer {
+  background: #080808;
+  padding: 1.8rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.footer-copy { font-size: 11px; color: rgba(255,255,255,0.25); }
+
+.footer-powered {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+}
+
+.footer-powered span { color: rgba(255,255,255,0.5); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .hero-nav, .hero-body, .hero-footer-nav,
+  .acuerdo-banner, .about-section, .sectores-section,
+  .pasos-section, .form-section, .orgs-section, .footer {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .about-section { grid-template-columns: 1fr; gap: 2.5rem; }
+  .sectores-grid { grid-template-columns: repeat(2, 1fr); }
+  .sector-card:nth-child(5) { grid-column: span 2; }
+  .part-features { grid-template-columns: 1fr; }
+  .hero-meta { flex-direction: column; width: 100%; }
+  .meta-item { border-right: none; border-bottom: 1px solid var(--border); }
+  .meta-item:last-child { border-bottom: none; }
+  .orgs-section { flex-direction: column; align-items: flex-start; }
+  .orgs-list { justify-content: flex-start; }
+  .footer { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .form-wrapper iframe { height: 1100px; }
+  .form-header { flex-direction: column; align-items: flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- BARRA TRICOLOR SUPERIOR -->
+<div class="tricolor-bar">
+  <div class="t-g"></div>
+  <div class="t-w"></div>
+  <div class="t-r"></div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <nav class="hero-nav">
+    <div class="nav-logos">
+      <span class="nav-logo-pill main">ICE · Italian Trade Agency</span>
+      <span class="nav-logo-pill main">Embajada de Italia</span>
+      <span class="nav-logo-pill">Confindustria</span>
+      <span class="nav-logo-pill">UIA</span>
+    </div>
+    <div class="nav-date">7 y 8 Sep 2026</div>
+  </nav>
+
+  <div class="hero-body">
+    <div class="hero-eyebrow">
+      <div class="flag-icon">
+        <span class="fi-g"></span>
+        <span class="fi-w"></span>
+        <span class="fi-r"></span>
+      </div>
+      <span class="eyebrow-text">Paneles Sectoriales y Rondas de Negocios</span>
+    </div>
+
+    <h1 class="hero-title">
+      Argentina<br><span class="country-it">Italia</span> <span class="year">2026</span>
+    </h1>
+
+    <p class="hero-subtitle">Encuentro bilateral de negocios B2B · Buenos Aires</p>
+
+    <div class="hero-meta">
+      <div class="meta-item">
+        <span class="meta-label">Fecha</span>
+        <span class="meta-value">7 y 8 de septiembre de 2026</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Sede</span>
+        <span class="meta-value">Palacio Libertad · Sarmiento 151, CABA</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Modalidad</span>
+        <span class="meta-value">Presencial · Con inscripción previa</span>
+      </div>
+    </div>
+
+    <a href="#inscripcion" class="hero-cta">
+      Inscribirse ahora →
+    </a>
+
+    <p class="hero-deadline">Inscripciones abiertas hasta el <strong>30 de julio de 2026</strong></p>
+  </div>
+
+  <div class="hero-footer-nav">
+    <div class="scroll-dot"></div>
+    <span class="scroll-text">Conocé más sobre el evento</span>
+  </div>
+</section>
+
+<!-- BANNER ACUERDO -->
+<div class="acuerdo-banner">
+  <div class="acuerdo-icon" style="font-size:0;"></div>
+  <p class="acuerdo-text">
+    En el marco de la <strong>entrada en vigor provisoria del Acuerdo de Libre Comercio UE-Mercosur</strong> — nuevas oportunidades de integración tecnológica, empresarial y desarrollo de negocios internacionales con Italia.
+  </p>
+</div>
+
+<!-- SOBRE EL EVENTO -->
+<section class="section about-section">
+  <div>
+    <div class="section-label">Sobre el evento</div>
+    <h2 class="section-title">Italia llega a Buenos Aires con sus mejores empresas</h2>
+    <div class="about-body">
+      <p>La Agencia ICE, la Embajada de Italia en Buenos Aires, Confindustria y la Unión Industrial Argentina organizan Argentina-Italia 2026: dos días de encuentros directos entre empresas argentinas y contrapartes italianas de los sectores más dinámicos de la economía bilateral.</p>
+      <p>Al inscribirse, accederá al catálogo completo de empresas italianas participantes y podrá seleccionar con quiénes desea reunirse durante las Rondas de Negocios del 7 de septiembre.</p>
+    </div>
+  </div>
+
+  <div class="cronograma">
+    <div class="cron-title">Cronograma</div>
+    <div class="cron-day">
+      <div class="cron-day-num">7</div>
+      <div>
+        <div class="cron-day-label">Domingo 7 de septiembre</div>
+        <div class="cron-day-name">Rondas de Negocios</div>
+        <div class="cron-day-detail">Almuerzo · 13:00 hs<br>Rondas · 14:00 a 18:00 hs</div>
+      </div>
+    </div>
+    <div class="cron-day">
+      <div class="cron-day-num">8</div>
+      <div>
+        <div class="cron-day-label">Lunes 8 de septiembre</div>
+        <div class="cron-day-name">Paneles Sectoriales</div>
+        <div class="cron-day-detail">Paneles desde las 9:30 hs<br>Almuerzo · 12:30 a 14:00 hs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTORES -->
+<section class="sectores-section">
+  <div class="section-label">Sectores participantes</div>
+  <h2 class="section-title" style="color:#fff; position:relative; z-index:1;">Cinco industrias. Un encuentro.</h2>
+
+  <div class="sectores-grid">
+    <div class="sector-card">
+      <div class="sector-icon alimenticio">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z"/>
+          <path d="M12 6v6l4 2"/>
+          <path d="M7 10c0-2.8 2.2-5 5-5"/>
+          <path d="M8 16s1.5 2 4 2 4-2 4-2"/>
+        </svg>
+      </div>
+      <div class="sector-name">Alimenticio</div>
+    </div>
+    <div class="sector-card">
+      <div class="sector-icon ingenieria">
+        <svg viewBox="0 0 24 24">
+          <rect x="2" y="14" width="20" height="8" rx="1"/>
+          <path d="M6 14V8a6 6 0 0 1 12 0v6"/>
+          <path d="M12 2v6"/>
+          <path d="M8 6h8"/>
+        </svg>
+      </div>
+      <div class="sector-name">Ingeniería y Construcción de Instalaciones</div>
+    </div>
+    <div class="sector-card">
+      <div class="sector-icon energia">
+        <svg viewBox="0 0 24 24">
+          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+        </svg>
+      </div>
+      <div class="sector-name">Transición Energética</div>
+    </div>
+    <div class="sector-card">
+      <div class="sector-icon digital">
+        <svg viewBox="0 0 24 24">
+          <rect x="2" y="3" width="20" height="14" rx="2"/>
+          <path d="M8 21h8"/>
+          <path d="M12 17v4"/>
+          <path d="M7 8h4"/>
+          <path d="M13 8h4"/>
+          <path d="M7 12h10"/>
+        </svg>
+      </div>
+      <div class="sector-name">Industria Digital</div>
+    </div>
+    <div class="sector-card">
+      <div class="sector-icon farmaceutico">
+        <svg viewBox="0 0 24 24">
+          <path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/>
+          <path d="M12 8v8"/>
+          <path d="M8 12h8"/>
+        </svg>
+      </div>
+      <div class="sector-name">Sector Farmacéutico</div>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO PARTICIPAR -->
+<section class="section pasos-section">
+  <div class="section-label">Cómo participar</div>
+  <h2 class="section-title">Tres pasos para estar en la sala</h2>
+  <p class="part-intro">El proceso de inscripción es simple y gratuito. Una vez registrado, recibirá acceso al catálogo de empresas italianas y podrá armar su agenda de reuniones antes del evento.</p>
+
+  <div class="part-features">
+    <div class="part-feature">
+      <div class="part-feature-num">01</div>
+      <div class="part-feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      </div>
+      <div class="part-feature-title">Completá el formulario</div>
+      <div class="part-feature-body">Registrá tu empresa indicando sector, intereses y si participás de las Rondas, los Paneles o ambos.</div>
+    </div>
+    <div class="part-feature">
+      <div class="part-feature-num">02</div>
+      <div class="part-feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div class="part-feature-title">Accedé al catálogo</div>
+      <div class="part-feature-body">Una vez inscripto, podrás ver el listado de empresas italianas y seleccionar con quiénes querés reunirte.</div>
+    </div>
+    <div class="part-feature">
+      <div class="part-feature-num">03</div>
+      <div class="part-feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div class="part-feature-title">Asistí al evento</div>
+      <div class="part-feature-body">Palacio Libertad, Sarmiento 151, CABA. El 7 y 8 de septiembre con tu agenda de reuniones confirmada.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMULARIO -->
+<section class="form-section" id="inscripcion">
+  <div class="form-header">
+    <div>
+      <div class="section-label">Inscripción oficial</div>
+      <h2 class="section-title" style="margin-bottom:0;">Completá tu registro</h2>
+    </div>
+    <div class="form-badge">Inscripciones abiertas</div>
+  </div>
+
+  <div class="form-wrapper">
+    <iframe
+      src="https://docs.google.com/forms/d/e/1FAIpQLSfgd4en93Iis6JV1Rp3bQzrUDjA1YgpAKDtxtxBmDAzQMecDA/viewform?embedded=true"
+      title="Formulario de inscripción Argentina-Italia 2026"
+      loading="lazy">
+      Cargando formulario…
+    </iframe>
+  </div>
+
+  <p class="form-deadline">⏰ Fecha límite de inscripción: <strong>30 de julio de 2026</strong></p>
+</section>
+
+<!-- ORGANIZADORES -->
+<div class="orgs-section">
+  <span class="orgs-label">Organizan</span>
+  <div class="orgs-list">
+    <span class="org-pill">ICE · Italian Trade Agency</span>
+    <span class="org-pill">Embajada de Italia en Buenos Aires</span>
+    <span class="org-pill">Confindustria</span>
+    <span class="org-pill">Unión Industrial Argentina</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span class="footer-copy">Argentina-Italia 2026 · Palacio Libertad · Buenos Aires</span>
+  <span class="footer-powered">Powered by <span>AdSmart Media</span></span>
+</footer>
+
+</body>
+</html>
